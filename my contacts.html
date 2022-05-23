@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>My Contacts</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">My Contacts</h1>
+      <input type="text" id="Contacts" placeholder="Search names..." />
+      <ul id="names" class="collectiion with-header">
+        <li class="collection-header">
+          <h5>A</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Apple</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Alpha</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Arrow</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Application</a>
+        </li>
+        <li class="collection-header">
+          <h5>B</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Ball</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Basket</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Brand</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Bar</a>
+        </li>
+        <li class="collection-header">
+          <h5>C</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Car</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Cover</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Card</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Correct</a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // get input element
+      let filterInput = document.getElementById("Contacts");
+      // add event listner
+      filterInput.addEventListener("keyup", filterNames);
+
+      function filterNames() {
+        let filterValue = document
+          .getElementById("Contacts")
+          .value.toUpperCase();
+
+        // get names ul
+        let ul = document.getElementById("names");
+        // get list from ul
+        let li = ul.querySelectorAll("li.collection-item");
+
+        // loop through collection-item list
+        for (let i = 0; i < li.length; i++) {
+          let a = li[i].getElementsByTagName("a")[0];
+          // if matched
+          if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
